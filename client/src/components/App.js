@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note"
@@ -7,6 +8,17 @@ import CreateNote from "./Create"
 function App(){
 
   const [notes, setNotes] = useState([]);
+  useEffect(()=>{
+    const fetchNotes = async()=>{
+        try{
+            const res = await axios.get("http://localhost:8800");
+            setNotes(res.data)
+        }catch(err){
+            console.log(err);
+        }
+    }
+    fetchNotes();
+}, [])
 
   function addNote(newNote){
     setNotes(previousNote =>{
