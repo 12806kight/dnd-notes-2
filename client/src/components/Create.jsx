@@ -8,7 +8,7 @@ function CreateNote(props){
         content: ""
     })
 
-    const navigate = useNavigate
+    const navigate = useNavigate();
 
     function handleChange(event){
         const {name , value} = event.target;
@@ -28,7 +28,7 @@ function CreateNote(props){
         })
         event.preventDefault();
         try{
-            console.log(note)
+            console.log(note.id)
             await axios.post("http://localhost:8800", note)
             navigate("/");
             }catch(err){

@@ -26,12 +26,19 @@ function App(){
     })
   }
 
-  function deletedNote(id){
+  async function deletedNote(id){
     setNotes(previousNote =>{
       return previousNote.filter((i, index)=>{
         return (index !== id);
       });
     });
+    try{
+      console.log(id)
+      await axios.delete("http://localhost:8800/"+id);
+      window.location.reload();
+    }catch(err){
+      console.log(err);
+  }
   }
 
   return (
@@ -39,10 +46,11 @@ function App(){
     <Header/>
     <CreateNote onAdd={addNote}/>
     {notes.map((i, index) =>{
+      console.log(i.id)
       return (
         <Note
         key={index}
-        id={index}
+        id={i.id}
         title={i.title}
         content={i.content}
         onDelete={deletedNote}

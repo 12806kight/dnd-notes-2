@@ -1,4 +1,4 @@
-import express from "express";
+ import express from "express";
 import cors from "cors";
 import mysql from "mysql2";
 
@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host : "localhost",
     user: "root",
-    password: process.env.password,
+    password: process.env.Password,
     database: "test",
 })
 
@@ -44,7 +44,17 @@ app.post("/", (req, res) => {
     })
 })
 
-    
+app.delete("/:id", (req, res)=>{
+    const noteId = req.params.id;
+    const q = "DELETE from notes WHERE id = ?";
+
+    db.query(q, noteId, (err, data)=>{
+        if(err) {
+            return res.json(err);
+        }
+        return res.json("Note has been deleted.");
+    })
+})  
 
 app.listen(8800, () =>{
     console.log("Connected to the backend");
