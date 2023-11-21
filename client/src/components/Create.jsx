@@ -1,10 +1,14 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function CreateNote(props){
     const [note, setNote] = useState({
         title : "",
         content: ""
     })
+
+    const navigate = useNavigate
 
     function handleChange(event){
         const {name , value} = event.target;
@@ -14,15 +18,23 @@ function CreateNote(props){
                 [name] : value
             }
         })
-    }
+            }
 
-    function submitNote(event){
+    async function submitNote(event){
         props.onAdd(note);
         setNote({
             title: "",
             content: ""
         })
         event.preventDefault();
+        try{
+            console.log(note)
+            await axios.post("http://localhost:8800", note)
+            navigate("/");
+            }catch(err){
+            console.log(err)
+           }
+
     }
     return(
     <div>
