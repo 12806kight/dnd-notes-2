@@ -45,6 +45,7 @@ function App(){
   return (
     <div>
     <Header/>
+    
     <CreateNote onAdd={addNote}/>
     {notes.map((i, index) =>{
       console.log(i.id)
