@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function CreateNote(props){
@@ -8,8 +7,7 @@ function CreateNote(props){
         content: ""
     })
 
-    const navigate = useNavigate();
-
+    
     function handleChange(event){
         const {name , value} = event.target;
         setNote(previousNotes =>{
@@ -30,7 +28,6 @@ function CreateNote(props){
         try{
             console.log(note.id)
             await axios.post("http://localhost:8800", note)
-            navigate("/");
             }catch(err){
             console.log(err)
            }

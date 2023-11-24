@@ -24,6 +24,7 @@ function App(){
     setNotes(previousNote =>{
       return [...previousNote, newNote];
     })
+    window.location.reload();
   }
 
   async function deletedNote(id){
