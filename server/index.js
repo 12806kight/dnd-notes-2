@@ -28,6 +28,17 @@ app.get("/", (req, res) => {
     })
 })
 
+app.get("/equipment", (req, res) => {
+    const q = "SELECT * FROM equipment";
+    db.query(q, (err, data) =>{
+        if(err){
+            return res.json(err);
+        }
+        return res.json(data);
+    })
+})
+
+
 app.post("/", (req, res) => {
     const q = "INSERT INTO notes (`title`, `content`) VALUES(?)"
 
