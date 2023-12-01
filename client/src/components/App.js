@@ -13,6 +13,7 @@ function App(){
         try{
             const res = await axios.get("http://localhost:8800/");
             setNotes(res.data)
+            console.log(res.data);
         }catch(err){
             console.log(err);
         }

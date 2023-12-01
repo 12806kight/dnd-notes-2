@@ -11,7 +11,7 @@ function Application() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}/>
-        <Route path="/books" element={<Equipment/>}/>
+        <Route path="/equip" element={<Equipment/>}/>
         <Route path="/stats" element={<Stats/>}/>
       </Routes>
       </BrowserRouter>

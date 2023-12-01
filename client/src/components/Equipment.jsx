@@ -4,11 +4,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Equipment() {
-    const[equip, setEquip] = useState([]);
+     const[equip, setEquip] = useState([]);
     useEffect(()=>{
         const fetchNotes = async() =>{
             try{
-                const res = await axios.get("http://localhost:8800/books")
+                const res = await axios.get("http://localhost:8800/equip")
                 console.log(res.data)
                 setEquip(res.data)
             }catch(err){
@@ -16,18 +16,18 @@ function Equipment() {
             }
         }
         fetchNotes();
+        
     }, [])
-  
+    console.log(equip)
     return (
       <div>
       <Header/>
       {equip.map((i) =>{
-      console.log(i.id)
       return (
         <div>
         <h1>{i.Name}</h1>
-        <p>{i.Description}</p>
-        </div>
+        <p>{i.Description}</p> 
+         </div>
       )
     })}
       <Footer/>
