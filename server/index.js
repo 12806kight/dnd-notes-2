@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host : "localhost",
     user: "root",
-    password: pass,
+    password: password, 
     database: "test",
 })
 
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get("/equipment", (req, res) => {
+app.get("/books", (req, res) => {
     const q = "SELECT * FROM equipment";
     db.query(q, (err, data) =>{
         if(err){

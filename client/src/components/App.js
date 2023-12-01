@@ -11,7 +11,7 @@ function App(){
   useEffect(()=>{
     const fetchNotes = async()=>{
         try{
-            const res = await axios.get("http://localhost:8800");
+            const res = await axios.get("http://localhost:8800/");
             setNotes(res.data)
         }catch(err){
             console.log(err);
@@ -45,7 +45,7 @@ function App(){
   return (
     <div>
     <Header/>
-    
+
     <CreateNote onAdd={addNote}/>
     {notes.map((i, index) =>{
       console.log(i.id)

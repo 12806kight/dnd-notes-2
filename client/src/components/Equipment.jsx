@@ -8,7 +8,8 @@ function Equipment() {
     useEffect(()=>{
         const fetchNotes = async() =>{
             try{
-                const res = await axios.get("http://localhost:8000/equipment")
+                const res = await axios.get("http://localhost:8800/books")
+                console.log(res.data)
                 setEquip(res.data)
             }catch(err){
                 console.log(err);
@@ -20,7 +21,15 @@ function Equipment() {
     return (
       <div>
       <Header/>
-      
+      {equip.map((i) =>{
+      console.log(i.id)
+      return (
+        <div>
+        <h1>{i.Name}</h1>
+        <p>{i.Description}</p>
+        </div>
+      )
+    })}
       <Footer/>
       </div>
     );

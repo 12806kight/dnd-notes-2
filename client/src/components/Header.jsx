@@ -6,7 +6,7 @@ function Header(){
         
         <header>
             <h1>OG's Notes</h1>
-            <button><Link to={"/Equipment"}><h1>Equipment</h1></Link></button>
+            <button><Link to={"/fed"}><h1>Equipment</h1></Link></button>
             <button><Link to={"/Stats"}><h1>Stats</h1></Link></button>
         </header>
     );
