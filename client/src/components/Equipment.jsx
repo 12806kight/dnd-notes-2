@@ -18,15 +18,17 @@ function Equipment() {
         fetchNotes();
         
     }, [])
-    console.log(equip)
     return (
       <div>
       <Header/>
       {equip.map((i) =>{
       return (
         <div>
+        {console.log(i.Stats.name)}
         <h1>{i.Name}</h1>
         <p>{i.Description}</p> 
+        <p>{i.Stats.name}</p>
+        <p>{i.Stats.age}</p>
          </div>
       )
     })}
