@@ -23,7 +23,7 @@ function Equipment() {
       <Header/>
       {equip.map((i) =>{
       return (
-        <div>
+        <div className="note">
         {console.log(i.Stats.name)}
         <h1>{i.Name}</h1>
         <p>{i.Description}</p> 

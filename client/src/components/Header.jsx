@@ -5,9 +5,9 @@ function Header(){
     return( 
         
         <header>
-            <h1>OG's Notes</h1>
-            <button><Link to={"/fed"}><h1>Equipment</h1></Link></button>
-            <button><Link to={"/Stats"}><h1>Stats</h1></Link></button>
+            <h1><Link to={"/"}>OG's Notes</Link></h1>
+            <h1><Link to={"/equip"}>Equipment</Link></h1>
+            <h1><Link to={"/Stats"}>Stats</Link></h1>
         </header>
     );
 }
