@@ -1,14 +1,13 @@
 import React from 'react'
+import Progressbar from './Progressbar'
+import Header from './Header'
+import Footer from './Footer'
 
 function Stats() {
-  return (
-    <div className='container'>
-      <div className='progress-bar'>
-        <div className='progress-bar-fill'></div>
-      </div>
-      <div className='progress-label'>50%</div>
-      <button>Progress</button>
-      <button>Reset</button>
+  return (<div>
+    <Header/>
+    <Progressbar/>
+    <Footer/>
     </div>
   )
 }
