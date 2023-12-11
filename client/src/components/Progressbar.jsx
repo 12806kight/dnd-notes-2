@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import level from "../level";
 
 function Progressbar() {
+  const [number1, setNumber1] = useState();
+  const [currentExp, setTotal] = React.useState(0);
+
+  function calculateTotal() {
+    setTotal(number1 + currentExp);
+  }
+
+
+
     let currentLevel = 0;
-    const currentExp = 1500;
     while(currentExp >= level[currentLevel].exp){
         currentLevel++;
     }
@@ -17,6 +25,10 @@ function Progressbar() {
     <div className='progress-bar'>
         <div className='progress-bar-fill' style={{transform: `translate(${levelPercentage - 100}%)`}}/>    
     </div>
+    
+            <input name="title" onChange={(e) => setNumber1(+e.target.value)} value={number1}></input>
+            <button onClick={calculateTotal}>Add</button>
+    
     </div>
   )
 }

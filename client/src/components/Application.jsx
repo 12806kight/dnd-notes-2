@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import Equipment from './Equipment';
-import Stats from './Stats';
+import Character from './Character';
 
 function Application() {
   return (
@@ -12,7 +12,7 @@ function Application() {
       <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/equip" element={<Equipment/>}/>
-        <Route path="/stats" element={<Stats/>}/>
+        <Route path="/character" element={<Character/>}/>
       </Routes>
       </BrowserRouter>
       </div>
