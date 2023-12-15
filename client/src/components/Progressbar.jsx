@@ -19,12 +19,19 @@ function Progressbar() {
     
 }, [])
 
-  function calculateTotal() {
-    setTotal(number1 + currentExp);
+  async function calculateTotal() {
+    setTotal(parseInt(number1) + parseInt(currentExp));
+    try{
+      await axios.put("http://localhost:8800/character/1", currentExp)
+      }catch(err){
+      console.log(err)
+     }
+
   }
 
 
-
+    let currentDay = level[0].Level
+    console.log(currentDay);
     let currentLevel = 0;
     while(currentExp >= level[currentLevel].exp){
         currentLevel++;
@@ -36,13 +43,16 @@ function Progressbar() {
   return (
     <div>
         <h1>Level {currentLevel - 1}</h1>
+        <p>{currentExp}</p>
     <div className='progress-bar'>
-        <div className='progress-bar-fill' style={{transform: `translate(${levelPercentage - 100}%)`}}/>    
+        <div className='progress-bar-fill' 
+        style={{transform: `translate(${levelPercentage - 100}%)`}}
+        />    
     </div>
-    
+    <form>
             <input name="title" onChange={(e) => setNumber1(+e.target.value)} value={number1}></input>
             <button onClick={calculateTotal}>Add</button>
-    
+    </form>
     </div>
   )
 }

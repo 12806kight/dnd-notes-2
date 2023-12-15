@@ -38,6 +38,18 @@ app.get("/character", (req, res) => {
     })
 })
 
+app.put("/character/:id", (req, res)=>{
+    const q = "UPDATE characterlevel SET `Experience` = 17000 WHERE id = 1";
+    console.log(req.params.id);
+    const value = req.body.title;
+    console.log(value)
+    db.query(q, (err, data)=>{
+        if(err) {
+            return res.json(err);
+        }
+        return res.json(data);
+    })
+})  
 
 app.get("/equip", (req, res) => {
     const q = "SELECT * FROM equipment";
@@ -52,7 +64,7 @@ app.get("/equip", (req, res) => {
 
 app.post("/", (req, res) => {
     const q = "INSERT INTO notes (`title`, `content`) VALUES(?)"
-
+    console.log(req.body);
     const values = [
         req.body.title,
         req.body.content,
