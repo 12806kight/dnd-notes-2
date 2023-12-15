@@ -1,4 +1,4 @@
- import express from "express";
+import express from "express";
 import cors from "cors";
 import mysql from "mysql2";
 
@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host : "localhost",
     user: "root",
-    password: password, 
+    password: config.env.password, 
     database: "test",
 })
 
@@ -27,6 +27,17 @@ app.get("/", (req, res) => {
         return res.json(data);
     })
 })
+
+app.get("/character", (req, res) => {
+    const q = "SELECT * FROM characterlevel";
+    db.query(q, (err, data) =>{
+        if(err){
+            return res.json(err);
+        }
+        return res.json(data);
+    })
+})
+
 
 app.get("/equip", (req, res) => {
     const q = "SELECT * FROM equipment";

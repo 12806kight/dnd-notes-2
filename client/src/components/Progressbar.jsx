@@ -1,9 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import level from "../level";
 
 function Progressbar() {
   const [number1, setNumber1] = useState();
   const [currentExp, setTotal] = React.useState(0);
+  useEffect(()=>{
+    const fetchNotes = async() =>{
+        try{
+            const res = await axios.get("http://localhost:8800/character")
+            console.log(res.data[0].Experience)
+            setTotal(res.data[0].Experience)
+        }catch(err){
+            console.log(err);
+        }
+    }
+    fetchNotes();
+    
+}, [])
 
   function calculateTotal() {
     setTotal(number1 + currentExp);
@@ -21,7 +35,7 @@ function Progressbar() {
 
   return (
     <div>
-        <h1>Level {currentLevel}</h1>
+        <h1>Level {currentLevel - 1}</h1>
     <div className='progress-bar'>
         <div className='progress-bar-fill' style={{transform: `translate(${levelPercentage - 100}%)`}}/>    
     </div>
