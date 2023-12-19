@@ -6,7 +6,7 @@ import Footer from './Footer'
 function Character() {
   return (<div>
     <Header/>
-    <h1>Ogee Kight</h1>
+    <h1>Ogee Kighter</h1>
     <Progressbar/>
     <Footer/>
     </div>

@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host : "localhost",
     user: "root",
-    password: config.env.password, 
+    password: , 
     database: "test",
 })
 
@@ -41,7 +41,7 @@ app.get("/character", (req, res) => {
 app.put("/character/:id", (req, res)=>{
     const q = "UPDATE characterlevel SET `Experience` = 17000 WHERE id = 1";
     console.log(req.params.id);
-    const value = req.body.title;
+    const value = req.body;
     console.log(value)
     db.query(q, (err, data)=>{
         if(err) {

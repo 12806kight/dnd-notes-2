@@ -9,7 +9,6 @@ function Progressbar() {
     const fetchNotes = async() =>{
         try{
             const res = await axios.get("http://localhost:8800/character")
-            console.log(res.data[0].Experience)
             setTotal(res.data[0].Experience)
         }catch(err){
             console.log(err);
