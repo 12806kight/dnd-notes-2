@@ -28,35 +28,34 @@ function Progressbar() {
      }
 
   }
-
-
-    let currentDay = level[0].Level
-    console.log(currentDay);
+  function levelBar(){
     let currentLevel = 0;
-    while(currentExp >= level[currentLevel].exp){
+    while(exp.exp >= level[currentLevel].exp){
         currentLevel++;
     }
     
     let levelExp = level[currentLevel].exp;
     let levelPercentage = (currentExp/levelExp) * 100;
-    console.log(currentExp[0])
+    return levelPercentage
+  }
   return (
 
     <div>
            {currentExp.map(exp=>(
+           
       <div key={exp.id}>
       <p>{exp.name}</p>
       <p>{exp.exp}</p>
-      </div>
-          ))}
-        <h1>Level </h1>
-        <p>788</p>
-    <div className='progress-bar'>
+
+      <div className='progress-bar'>
         <div className='pro>gress-bar-fill' 
         style={{transform: `translate(${levelPercentage - 100}%)`}}
         />    
     </div> 
-    <form>
+
+      </div>
+          ))}
+        <form>
             <input name="title" onChange={(e) => setNumber1(+e.target.value)} value={number1}></input>
             <button onClick={calculateTotal}>Add</button>
     </form>
