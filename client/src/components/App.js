@@ -57,6 +57,7 @@ function App(){
         title={i.title}
         content={i.content}
         onDelete={deletedNote}
+        onView={ViewNote}
         />
       )
     })}
