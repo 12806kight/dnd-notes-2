@@ -2,9 +2,17 @@ import React, {useState} from "react";
 import axios from "axios";
 
 function CreateNote(props){
+    function getDate() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const year = today.getFullYear();
+        const date = today.getDate();
+        return `${year}-${month}-${date}`;
+      }
     const [note, setNote] = useState({
         title : "",
-        content: ""
+        content: "",
+        date: getDate()
     })
 
     
@@ -22,7 +30,8 @@ function CreateNote(props){
         props.onAdd(note);
         setNote({
             title: "",
-            content: ""
+            content: "",
+            date : ""
         })
         event.preventDefault();
         try{

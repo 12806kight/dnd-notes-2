@@ -11,6 +11,13 @@ function View() {
     const locationId = location.pathname.split("/")[2];
     
     const [notes, setNotes] = useState([]);
+    function getDate() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const year = today.getFullYear();
+        const date = today.getDate();
+        return `${year}-${month}-${date}`;
+      }
   useEffect(()=>{
     ;
 
@@ -18,7 +25,7 @@ function View() {
         try{
             const res = await axios.get("http://localhost:8800/"+locationId);
             setNotes(res.data)
-            console.log(res.data);
+            console.log(getDate());
         }catch(err){
             console.log(err);
         }

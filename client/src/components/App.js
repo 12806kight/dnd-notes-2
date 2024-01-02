@@ -55,6 +55,7 @@ function App(){
         key={index}
         id={i.id}
         title={i.title}
+        date={i.date}
         content={i.content}
         onDelete={deletedNote}
         />
